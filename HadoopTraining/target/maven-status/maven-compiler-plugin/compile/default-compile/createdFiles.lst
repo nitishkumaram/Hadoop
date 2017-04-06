@@ -1,0 +1,4 @@
+com/hadoop/training/hadooputility/HadoopUtility.class
+com/hadoop/training/region/RegionMapper.class
+com/hadoop/training/region/RegionDriver.class
+com/hadoop/training/region/RegionReducer.class
