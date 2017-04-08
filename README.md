@@ -91,13 +91,9 @@ Nitishs-MacBook-Pro:conf NITISH$ vi hive-site.xml
 
 </configuration>
 
-
-—————————————————————————————
 Nitishs-MacBook-Pro:conf NITISH$ cd 
-
 Nitishs-MacBook-Pro:~ NITISH$ source .bashrc
 Nitishs-MacBook-Pro:~ NITISH$ hive
-—————————————————————————————
 
 OR Open new terminal
 
