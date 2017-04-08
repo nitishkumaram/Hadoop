@@ -1,0 +1,67 @@
+HIVE Installation
+===================
+
+1) copy HIVE s/w from Win to Linux home path
+
+
+$chmod 777 hive....
+
+$tar -xzvf hive0.9.0....
+
+2)
+cd hive-0.9.0
+vi .bashrc
+
+export HIVE_HOME=/Users/NITISH/Documents/HADOOP/HADOOP_SW/hive-0.9.0
+export HIVE_CONF_DIR=$HIVE_HOME/conf
+
+export HIVE_LIB=$HIVE_HOME/lib
+
+export PATH=$PATH:$HIVE_HOME/bin
+export CLASSPATH=$CLASSPATH$HIVE_LIB
+
+
+3)source .bashrc - Refresh karte hai(not executed)
+
+4)create 2 directories under HDFS 
+		$bin/hadoop fs -mkdir tmp (to maintain all temp data)
+		$bin/hadoop fs -mkdir warehouse(storing tables)
+
+
+$bin/hadoop fs -chmod g+w tmp
+$bin/hadoop fs -chmod g+w warehouse
+
+5)To establish connection b/w HIVE  and HDFS
+
+$cd $HADOOP_HOME
+$cd conf
+$vi hive-site.xml
+
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+
+<property>
+<name>hive.metastore.warehouse.dir</name>
+<value>/user/NITISH/warehouse</value>
+</property>
+
+<property>
+<name>fs.default.name</name>
+<value>hdfs://localhost:54310</value>
+</property>
+
+
+<property>
+<name>mapred.job.tracker</name>
+<value>hdfs://localhost:54311</value>
+</property>
+
+</configuration>
+
+
+$cd ..
+$cd bin
+bin$hive
+
+hive >

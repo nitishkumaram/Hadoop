@@ -1,0 +1,66 @@
+Hive Commands
+
+$Hadoop _SW
+rm -r hive-0.9.0
+
+Nitishs-MacBook-Pro:HADOOP_SW NITISH$ chmod 777 hive-0.9.0-bin.tar.gz 
+
+Nitishs-MacBook-Pro:HADOOP_SW NITISH$ tar -xzvf hive-0.9.0-bin.tar.gz
+ 
+Nitishs-MacBook-Pro:HADOOP_SW NITISH$ mv hive-0.9.0-bin hive-0.9.0
+
+Nitishs-MacBook-Pro:HADOOP_SW NITISH$ cd hive-0.9.0
+
+Nitishs-MacBook-Pro:~ NITISH$ vi .bashrc
+
+export Hive_Home
+
+Nitishs-MacBook-Pro:hive-0.9.0 NITISH$ source .bashrc
+
+Nitishs-MacBook-Pro:hadoop-1.0.3 NITISH$ bin/hadoop fs -mkdir tmp
+
+Nitishs-MacBook-Pro:hadoop-1.0.3 NITISH$ bin/hadoop fs -mkdir warehouse
+	
+Nitishs-MacBook-Pro:hadoop-1.0.3 NITISH$ bin/hadoop fs -chmod g+w tmp
+
+Nitishs-MacBook-Pro:hadoop-1.0.3 NITISH$ bin/hadoop fs -chmod g+w warehouse
+
+Nitishs-MacBook-Pro:hadoop-1.0.3 NITISH$ cd conf
+
+Nitishs-MacBook-Pro:conf NITISH$ vi hive-site.xml 
+
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+
+<property>
+<name>hive.metastore.warehouse.dir</name>
+<value>/users/Nitish/warehouse</value>
+</property>
+
+<property>
+<name>fs.default.name</name>
+<value>hdfs://localhost:54310</value>
+</property>
+
+
+<property>
+<name>mapred.job.tracker</name>
+<value>hdfs://localhost:54311</value>
+</property>
+
+</configuration>
+
+
+—————————————————————————————
+Nitishs-MacBook-Pro:conf NITISH$ cd 
+
+Nitishs-MacBook-Pro:~ NITISH$ source .bashrc
+Nitishs-MacBook-Pro:~ NITISH$ hive
+—————————————————————————————
+
+OR Open new terminal
+
+Nitishs-MacBook-Pro:~ NITISH$ source .bashrc
+Nitishs-MacBook-Pro:~ NITISH$ hive
+
