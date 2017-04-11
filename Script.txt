@@ -1,0 +1,26 @@
+create table Google_In
+( 
+Region string, Person string, Clicks int
+)
+row format
+delimited fields terminated by ' '
+lines terminated by '\n'
+stored as textfile;
+
+load data local inpath '/Users/NITISH/Documents/hiveinput.txt' overwrite into table Google_In;
+
+create external table Google_Out
+(
+Person string,
+Clicks int
+);
+
+insert into table Google_Out
+
+select Person, sum(Clicks)
+from Google_In
+where Region = 'IND'
+group by Person
+order by Person;
+
+select * from Google_Out;
