@@ -1,0 +1,14 @@
+Nitishs-MacBook-Pro:~ NITISH$ cd Documents/HADOOP/HADOOP_SW/
+
+Nitishs-MacBook-Pro:HADOOP_SW NITISH$ chmod 777 pig-0.11.0.tar
+
+Nitishs-MacBook-Pro:HADOOP_SW NITISH$ tar -xzvf pig-0.11.0.tar
+
+Nitishs-MacBook-Pro:HADOOP_SW NITISH$ cd pig-0.11.0
+
+Nitishs-MacBook-Pro:~ NITISH$ vi .bashrc
+
+Nitishs-MacBook-Pro:pig-0.11.0 NITISH$ cd conf
+
+Nitishs-MacBook-Pro:~ NITISH$ source .bashrc
+Nitishs-MacBook-Pro:~ NITISH$ hive
