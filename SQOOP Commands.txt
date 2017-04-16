@@ -1,0 +1,51 @@
+SQOOP Commands
+
+$HADOOP_Sw/
+tar -xvf sqoop-1.4.4.bin__hadoop-2.0.4-alpha.tar.gz
+
+Nitishs-MacBook-Pro:HADOOP_SW NITISH$ mv sqoop-1.4.6.bin__hadoop-2.0.4-alpha.tar.gz sqoop
+
+Nitishs-MacBook-Pro:~ NITISH$ vi .bashrc
+
+#SQOOP PATH
+export SQOOP_HOME=/Users/NITISH/Documents/HADOOP/HADOOP_SW/sqoop
+export PATH=$PATH:$SQOOP_HOME/bin
+
+Nitishs-MacBook-Pro:~ NITISH$ source .bashrc
+
+Nitishs-MacBook-Pro:~ NITISH$ cd Documents/HADOOP/HADOOP_SW/sqoop
+
+Nitishs-MacBook-Pro:sqoop NITISH$ cd conf
+
+
+OPEN sqoop-env.sh AND EDIT THE FOLLOWING LINES:-
+
+Nitishs-MacBook-Pro:conf NITISH$ vi sqoop-env.sh 
+
+Nitishs-MacBook-Pro:conf NITISH$ mv sqoop-env-template.sh sqoop-env.sh
+
+#Set path to where bin/hadoop is available
+export HADOOP_COMMON_HOME=/users/NITISH
+
+#Set path to where hadoop-*-core.jar is available
+export HADOOP_MAPRED_HOME=/users/NITISH
+
+cd Documents/HADOOP/HADOOP_SW/s-f-o
+
+
+https://dev.mysql.com/downloads/file/?id=468318
+
+Nitishs-MacBook-Pro:s-f-o NITISH$ tar -zxf mysql-connector-java-5.1.30.tar.gz 
+
+Nitishs-MacBook-Pro:s-f-o NITISH$ cd mysql-connector-java-5.1.30
+
+Nitishs-MacBook-Pro:mysql-connector-java-5.1.30 NITISH$ mv mysql-connector-java-5.1.30-bin.jar /Users/NITISH/Documents/HADOOP/HADOOP_SW/sqoop/lib
+
+Nitishs-MacBook-Pro:mysql-connector-java-5.1.30 NITISH$ cd 
+
+Nitishs-MacBook-Pro:~ NITISH$ source .bashrc
+
+Nitishs-MacBook-Pro:~ NITISH$ cd /users/NITISH/Documents/HADOOP/HADOOP_SW/sqoop/
+
+$ cd $SQOOP_HOME/bin
+$ sqoop-version
