@@ -24,3 +24,82 @@ group by Person
 order by Person;
 
 select * from Google_Out;
+---------------------------------------------------------------------------------------------------------------
+
+Q- Create managed/internal table and load data from local file system.
+
+create table Employee
+(
+Employee_ID int,Employee_Name string,Employee_Dept int
+)
+row format
+delimited fields terminated by ' '
+lines terminated by '\n'
+stored as textfile;
+
+load data local inpath '/Users/NITISH/Documents/Employee.txt' overwrite into table Employee;
+
+----------------------------------------------------------------------------------------------------------------
+Q- Create an external table and load data from HDFS.
+
+create external table Employee_External(
+Employee_ID int, Employee_Name string, Employee_Dept int
+)
+row format
+delimited fields terminated by ' '
+lines terminated by '\n'
+stored as textfile;
+
+bin/hadoop fs -copyFromLocal /Users/NITISH/Documents/Employee.txt Employee
+
+load data inpath 'Employee' overwrite into table Employee_External;
+
+----------------------------------------------------------------------------------------------------------------
+
+Q- Create an external table using another table
+
+
+create external table Employee_External1(
+Employee_ID int, Employee_Name string, Employee_Dept int)
+row format
+delimited fields terminated by ' '
+lines terminated  by '\n'
+stored as textfile
+location '/Users/NITISH/Documents/HADOOP/HADOOP_SW/hadoop-1.0.3/Employee_External1';
+
+insert into table employee_external1 select * from employee;  
+
+---------------->>>>>>>>>
+In case where you need to alter 
+
+Alter table Employee_External1 change employee_dept employee_dept string;
+
+----------------------------------------------------------------------------------------------------------------
+
+HADOOP BY EXAMPLE PRACTICE:-
+
+page 250
+
+create table cite (citing int, cited int)
+row format delimited
+fields terminated by ','
+stored as textfile;
+
+load data local inpath '/Users/NITISH/Documents/cite75_99.txt'
+overwrite into table cite;
+
+select * from cite limit 10;
+
+select count(1) from cite;
+
+create table cite_count(cited int, count int);
+
+insert overwrite table cite_count
+select cited, count(citing)
+from cite
+group by cited;
+
+ select * from cite_count where count > 10 limit 10;
+
+ drop table cite_count;
+ 
